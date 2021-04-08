@@ -1,6 +1,6 @@
 FROM ubuntu:20.04
 
-WORKDIR /root
+#WORKDIR /root
 
 ##################################
 # INSTALLING OS AND BASIC DEPENDENCIES
@@ -25,7 +25,8 @@ RUN add-apt-repository -y ppa:deadsnakes/ppa && \
 ##################################
 # install pyopenvdb
 RUN pip3.7 install pyopenvdb; \
-    pip3.7 install Pillow;
+    pip3.7 install Pillow; \
+    pip3.7 install pandas;
 
 ##################################
 # ENVIRONMENT
@@ -33,14 +34,3 @@ RUN pip3.7 install pyopenvdb; \
 ENV LD_LIBRARY_PATH /usr/local/lib/python3.7/dist-packages
 RUN echo 'export LD_LIBRARY_PATH="/usr/local/lib/python3.7/dist-packages"' >> ~/.bashrc
 
-##################################
-# COPYING FILES TO YOUR CONTAINER
-##################################
-COPY mummy/genvdb.py /root/genvdb.py
-COPY mummy/mkmummyvdb.py /root/mkmummyvdb.py
-COPY mummy/data_basics_importing_data_mummy-slices.tar.gz /root/data_basics_importing_data_mummy-slices.tar.gz
-
-##################################
-# RUNNING SCRIPTS
-##################################
-CMD ["python3.7", "mkmummyvdb.py"]
