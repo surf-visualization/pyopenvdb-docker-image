@@ -1,20 +1,28 @@
 
 # Simple docker container to run pyopenvdb on your system
 
-## Build and run pyopenvdb in your container
-Download, install and start docker desktop (https://www.docker.com/products/docker-desktop)
+The goal of this dockerfile is simple. If you tried installing pyopenvdb through the given instructions (https://pypi.org/project/pyopenvdb/) and failed or if your system is not compatiple, try this dockerfile.
 
-Build an image with name ```pyopenvdb_img```:
+To run pyopenvdb through this dockerfile follow the instructions below. 
+
+## Build and run pyopenvdb in your container
+Download, install and start docker desktop (https://www.docker.com/products/docker-desktop).
+
+Download ```Dockerfile``` from this repo or clone it to your machine and open a terminal at the directory where you saved ```Dockerfile```.
+
+Now build an image (which will be named ```pyopenvdb_img```) by executing the following command:
 ```
 docker build -t pyopenvdb_img .
 ```
-Use the image to run a container continuously and start a bash:
+Now you can run a bash terminal in a container with the image you just made using:
 ```
 docker run -it --rm pyopenvdb_img bash
 ```
-Here ```-it``` keeps the container running so you can work in it and ```-rm``` removes the container when you exit. Now you can type ```python3.7``` and import ```pyopenvdb``` and start playing.
+Here ```-it``` keeps the container running so you can work in it and ```-rm``` removes the container when you exit. 
 
-If you want to use files on your local host machine, you can link a volume into the container when you start it:
+Now you can type ```python3.7``` and import ```pyopenvdb``` and start playing. (Note that the image uses ```python3.7``` and not ```python``` or ```python3```. If you want other installs of python please edit the dockerfile and build again.)
+
+If you want to use files on your machine in the container, you need to link a volume into the container when you start it. If your previous container is still running, exit it by typing ```exit```. Find the absolute path of the directory containing the files you want to use in the container and execute the following command:
 ```
 docker run -it --rm -v <absolute path to a folder with scripts>:/scripts pyopenvdb_img bash
 ```
