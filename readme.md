@@ -20,7 +20,7 @@ docker run -it --rm pyopenvdb_img bash
 ```
 Here ```-it``` keeps the container running so you can work in it and ```-rm``` removes the container when you exit. 
 
-Now you can type ```python3.7``` and import ```pyopenvdb``` and start playing. (Note that the image uses ```python3.7``` and not ```python``` or ```python3```. If you want other installs of python please edit the dockerfile and build again.)
+Now you can type ```python3.7``` and import ```pyopenvdb``` and start playing. (Note that the image uses ```python3.7``` and not ```python``` or ```python3```.)
 
 If you want to use files on your machine in the container, you need to link a volume into the container when you start it. If your previous container is still running, exit it by typing ```exit```. Find the absolute path of the directory containing the files you want to use in the container and execute the following command:
 ```
