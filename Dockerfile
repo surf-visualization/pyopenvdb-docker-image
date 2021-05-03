@@ -25,8 +25,11 @@ RUN add-apt-repository -y ppa:deadsnakes/ppa && \
 ##################################
 # install pyopenvdb
 RUN pip3.7 install pyopenvdb; \
+    #pip3.7 install <your package>; \
     pip3.7 install Pillow; \
+    pip3.7 install scipy; \
     pip3.7 install pandas;
+
 
 ##################################
 # ENVIRONMENT
