@@ -13,6 +13,7 @@ Use the image to run a container continuously and start a bash:
 docker run -it --rm pyopenvdb_img bash
 ```
 Here ```-it``` keeps the container running so you can work in it and ```-rm``` removes the container when you exit. Now you can type ```python3.7``` and import ```pyopenvdb``` and start playing.
+
 If you want to use files on your local host machine, you can link a volume into the container when you start it:
 ```
 docker run -it --rm -v <absolute path to a folder with scripts>:/scripts pyopenvdb_img bash
