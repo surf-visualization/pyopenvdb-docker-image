@@ -16,6 +16,7 @@ ADD https://bootstrap.pypa.io/get-pip.py get-pip.py
 RUN add-apt-repository -y ppa:deadsnakes/ppa && \
     apt update && \
     apt install -y python3.7 && \
+    apt install -y python3.7-distutils && \
     python3.7 get-pip.py && \
     rm -rf /root/get-pip.py && \
     apt install libpython3.7
